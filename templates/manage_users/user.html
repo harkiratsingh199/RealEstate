@@ -1,0 +1,237 @@
+{% extends 'adminAccountTemplates/adminLayout.html' %}
+
+{% block admin-content %}
+<br><br><br><br><br><br><br>
+    <div class="columns">
+        <div class="column is-three-quarters">
+            <p class="title">
+                {{ title }}
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-6">
+
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form.errors }}
+
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+{#                                    <input type="text" name="firstname" id="firstname" required class="form-control input-sm floatlabel" placeholder="First Name">#}
+                                <label>First Name</label>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+{#                                   <input type="text" name="first_name"  required class="form-control input-sm floatlabel" placeholder="First Name">#}
+                                {{ form.first_name }}
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+{#                                    <input type="text" name="firstname" id="firstname" required class="form-control input-sm floatlabel" placeholder="First Name">#}
+                                <label>Last Name</label>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+{#                                   <input type="text" name="last_name"  required class="form-control input-sm floatlabel" placeholder="Last Name">#}
+                                {{ form.last_name }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+{#                                    <input type="text"  placeholder="Email" name="email"class="form-control input-sm floatlabel" required id="email" class="form-control"/>#}
+                                    <label>Email</label>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+{#                                 <input type="text"  placeholder="Email" name="email"class="form-control input-sm floatlabel" required  class="form-control"/>#}
+                                    {{ form.email }}
+                                </div>
+                            </div>
+                        </div>
+                      <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+{#                                    <input type="text"  placeholder="Username" name="username"class="form-control input-sm floatlabel" required id="email" class="form-control"/>#}
+                                    <label>Username</label>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+{#                                 <input type="text"  placeholder="Email" name="email"class="form-control input-sm floatlabel" required  class="form-control"/>#}
+                                    {{ form.username }}
+                                </div>
+                            </div>
+                        </div>
+                 <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+{#                                    <input type="text"  placeholder="Username" name="username"class="form-control input-sm floatlabel" required id="email" class="form-control"/>#}
+                                    <label>Password</label>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    {% if form.password %}
+                                {{ form.password }}
+                            {% else %}
+                                <a class="button is-primary" href="#">Reset Password</a>
+                            {% endif %}
+                                </div>
+                            </div>
+                 </div>
+                                  <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+{#                                    <input type="text"  placeholder="Username" name="username"class="form-control input-sm floatlabel" required id="email" class="form-control"/>#}
+                                    <label>Account Expiry Date</label>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+{#                                 <input type="text"  placeholder="Email" name="email"class="form-control input-sm floatlabel" required  class="form-control"/>#}
+                                   {{ form.account_expiry_date }}
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                <div class="field is-grouped is-grouped-centered">
+                  <p class="control">
+                    <input type="submit" value="Submit" class="btn btn-primary btn-block">
+                    </input>
+                  </p>
+                  <p class="control">
+                    <a class="btn btn-primary btn-block" href="{% url 'users' %}">
+                      Cancel
+                    </a>
+                  </p>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}
+{#{% extends '_adminLayout.html' %}#}
+{##}
+{#{% block admin-content %}#}
+{##}
+{#    <div class="columns">#}
+{#        <div class="column is-three-quarters">#}
+{#            <p class="title">#}
+{#                {{ title }}#}
+{#            </p>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#    <div class="columns">#}
+{##}
+{#        <div class="column is-three-quarters">#}
+{##}
+{#            <form action="" method="post">#}
+{#                {% csrf_token %}#}
+{#                {{ form.errors }}#}
+{#                <div class="field is-horizontal">#}
+{#                  <div class="field-label is-normal">#}
+{#                    <label class="label">Full Name</label>#}
+{#                  </div>#}
+{#                  <div class="field-body">#}
+{#                    <div class="field">#}
+{#                      <p class="control is-expanded">#}
+{#                          {{ form.first_name }}#}
+{#                      </p>#}
+{#                    </div>#}
+{#                    <div class="field">#}
+{#                      <p class="control is-expanded">#}
+{#                          {{ form.last_name }}#}
+{#                      </p>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                </div>#}
+{##}
+{#                <div class="field is-horizontal">#}
+{#                  <div class="field-label is-normal">#}
+{#                      <label class="label">Email</label>#}
+{#                  </div>#}
+{#                  <div class="field-body">#}
+{#                    <div class="field">#}
+{#                        <p class="control is-expanded">#}
+{#                        {{ form.email }}#}
+{#                      </p>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                </div>#}
+{##}
+{#                <div class="field is-horizontal">#}
+{#                  <div class="field-label is-normal">#}
+{#                      <label class="label">Username</label>#}
+{#                  </div>#}
+{#                  <div class="field-body">#}
+{#                    <div class="field">#}
+{#                        <p class="control is-expanded">#}
+{#                        {{ form.username }}#}
+{#                      </p>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                </div>#}
+{##}
+{#                <div class="field is-horizontal">#}
+{#                  <div class="field-label is-normal">#}
+{#                      <label class="label">Password</label>#}
+{#                  </div>#}
+{#                  <div class="field-body">#}
+{#                    <div class="field">#}
+{#                        <p class="control is-expanded">#}
+{#                            {% if form.password %}#}
+{#                                {{ form.password }}#}
+{#                            {% else %}#}
+{#                                <a class="button is-primary" href="#">Reset Password</a>#}
+{#                            {% endif %}#}
+{#                        </p>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                </div>#}
+{##}
+{#                <div class="field is-horizontal">#}
+{#                  <div class="field-label is-normal">#}
+{#                      <label class="label">Account Expiry Date</label>#}
+{#                  </div>#}
+{#                  <div class="field-body">#}
+{#                    <div class="field">#}
+{#                        <p class="control is-expanded">#}
+{#                        {{ form.account_expiry_date }}#}
+{#                      </p>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                </div>#}
+{##}
+{#                <div class="field is-grouped is-grouped-centered">#}
+{#                  <p class="control">#}
+{#                    <input type="submit" value="Submit" class="button is-primary" />#}
+{#                  </p>#}
+{#                  <p class="control">#}
+{#                    <a class="button is-light" href="{% url 'system-admin:users' %}">#}
+{#                      Cancel#}
+{#                    </a>#}
+{#                  </p>#}
+{#                </div>#}
+{#            </form>#}
+{##}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#{% endblock %}#}

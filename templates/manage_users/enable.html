@@ -1,0 +1,37 @@
+{% extends 'adminAccountTemplates/adminLayout.html' %}
+
+{% block content %}
+<br><br><br><br><br><br><br><br>
+    <div class="columns">
+        <div class="column is-three-quarters">
+            <p class="subtitle">
+                Are you sure you want to {{ text }} this user?
+            </p>
+        </div>
+    </div>
+
+    <div class="columns">
+
+        <div class="column is-three-quarters">
+            <p>
+                You are about to {{ text }} {{ user.first_name | add:" " | add:user.last_name }}.
+            </p>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="field is-grouped is-grouped-centered">
+                  <p class="control">
+                    <input type="submit" value="{{ text | capfirst }}" class="button is-danger">
+                    </input>
+                  </p>
+                  <p class="control">
+                    <a class="button is-light" href="{% url 'users' %}">
+                      Cancel
+                    </a>
+                  </p>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}

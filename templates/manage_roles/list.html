@@ -1,0 +1,52 @@
+{% extends 'adminAccountTemplates/adminLayout.html' %}
+
+{% block admin-content %}
+<div class="col-sm-6">
+
+    <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                <label>List of all roles</label>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                <a class="btn btn-primary btn-block" href="{% url 'create-role' %}">
+                                 Add Role
+                                </a>
+                                </div>
+                            </div>
+    </div>
+
+    <div class="row">
+        <div class="column is-full">
+            <table class="table is-fullwidth">
+                <thead>
+                    <th>Name</th>
+                    <th>Permissions</th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    {% for role in roles %}
+                        <tr>
+                            <td>{{ role.name }}</td>
+                            <td>Permissions...</td>
+                            <td>
+                                <div class="field is-grouped is-grouped-centered">
+                                <a class="btn btn-primary btn-success" href="{% url 'permissions' role.id %}">Manage
+                                Permissions</a>
+                            <a class="btn btn-primary btn-danger" href="{% url 'delete-role' role.id %}">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock %}

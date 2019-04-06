@@ -1,0 +1,85 @@
+{#{% extends 'authenticatedUserTemplates/layout.html' %}#}
+{#{% load static%}#}
+{#{% block content %}#}
+{##}
+{#    <section class="south-editor-area d-flex align-items-center">#}
+{#        <!-- Editor Content -->#}
+{#        <div class="editor-content-area">#}
+{#    <div class="section">#}
+{#<div class="container-fluid">#}
+{#  <div class="row content">#}
+{#    <div class="col-sm-3 sidenav">#}
+{#      <h1>Administrative Portal</h1>#}
+{#      <ul class="nav nav-pills nav-stacked">#}
+{#        <li><a href="{% url 'eproperty:dashboard' %}">Dashboard</a></li>#}
+{#        <br>#}
+{#        <li><a href="{% url 'system-admin:users' %}">User Accounts</a></li>#}
+{#        <li><a href="{% url 'system-admin:roles' %}">System Roles</a></li>#}
+{#        <li><a href="{% url 'system-admin:features' %}">System Features/Privileges</a></li>#}
+{#      </ul><br>#}
+{#      <div class="input-group">#}
+{#        <input type="text" class="form-control" placeholder="Search User..">#}
+{#        <span class="input-group-btn">#}
+{#          <button class="btn btn-default" type="button">#}
+{#            <span class="glyphicon glyphicon-search"></span>#}
+{#          </button>#}
+{#        </span>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#</div>#}
+{#</div>#}
+{#    </div>#}
+{#    </div>#}
+{##}
+{#    </section>#}
+
+{% extends 'propertyWebsiteTemplates/layout.html' %}
+{% load static%}
+{% block content %}
+
+
+        <section class="south-editor-area d-flex align-items-center">
+        <!-- Editor Content -->
+        <div class="col-sm-3">
+        <div class="editor-content-area">
+            <!-- Section Heading -->
+            <div class="section-heading wow fadeInUp" data-wow-delay="250ms">
+                 <div class="column is-3 classy-menu">
+        <br> <br> <br> <br>
+      <h3>Administrative Portal</h3>
+                     <table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th><a href="{% url 'dashboard' %}">Dashboard</a></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="{% url 'users' %}">User Accounts</a></td>
+    </tr>
+   <tr>
+      <td><a href="{% url 'roles' %}">System Roles</a></td>
+    </tr>
+   <tr>
+      <td><a href="{% url 'features' %}">System Features/Privileges</a></td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Editor Thumbnail -->
+        <div class="col-sm-9">
+        <div class="editor-thumbnail">
+            {% block admin-content %}
+
+
+            {% endblock %}
+        </div>
+        </div>
+    </section>
+{% endblock %}

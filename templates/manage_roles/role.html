@@ -1,0 +1,92 @@
+{% extends 'adminAccountTemplates/adminLayout.html' %}
+{% load widget_tweaks %}
+
+{% block admin-content %}
+
+{#    <div class="columns">#}
+{#        <div class="column is-three-quarters">#}
+{#            <p class="subtitle">#}
+{#                Add a new role#}
+{#            </p>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#    <div class="columns">#}
+{##}
+{#        <div class="column is-three-quarters">#}
+{##}
+{#            <form action="" method="post">#}
+{#                {% csrf_token %}#}
+{#                {{ form.field_errors }}#}
+{#                <div class="field is-horizontal">#}
+{#                  <div class="field-label is-normal">#}
+{#                      <label class="label">Role Name</label>#}
+{#                  </div>#}
+{#                  <div class="field-body">#}
+{#                    <div class="field">#}
+{#                        <p class="control is-expanded">#}
+{#                        {{ form.name | attr:"class:input" | attr:"placeholder:Role"  }}#}
+{#                      </p>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                </div>#}
+{##}
+{#                <div class="field is-grouped is-grouped-centered">#}
+{#                  <p class="control">#}
+{#                    <input type="submit" value="Submit" class="button is-primary">#}
+{#                    </input>#}
+{#                  </p>#}
+{#                  <p class="control">#}
+{#                    <a class="button is-light" href="{% url 'system-admin:roles' %}">#}
+{#                      Cancel#}
+{#                    </a>#}
+{#                  </p>#}
+{#                </div>#}
+{#            </form>#}
+{##}
+{#        </div>#}
+{#    </div>#}
+
+<div class="col-sm-6">
+
+    <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                <label> Add a role</label>
+                                </div>
+                            </div>
+
+    </div>
+    <form action="" method="post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                <label>Role Name</label>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                {{ form.name | attr:"class:input" | attr:"placeholder:Role"  }}
+                                </div>
+                            </div>
+                        </div>
+
+                <div class="field is-grouped is-grouped-centered">
+                  <p class="control">
+                    <input type="submit" value="Submit" class="btn btn-primary btn-block">
+                    </input>
+                  </p>
+                  <p class="control">
+                    <a class="btn btn-primary btn-block" href="{% url 'roles' %}">
+                      Cancel
+                    </a>
+                  </p>
+                </div>
+            </form>
+
+
+</div>
+{% endblock %}

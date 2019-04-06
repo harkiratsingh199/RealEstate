@@ -1,0 +1,55 @@
+{% extends 'adminAccountTemplates/adminLayout.html' %}
+{% load widget_tweaks %}
+
+{% block admin-content %}
+<div class="col-sm-6">
+ <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+{#                                    <input type="text" name="firstname" id="firstname" required class="form-control input-sm floatlabel" placeholder="First Name">#}
+                                <label>Add a new feature</label>
+                                </div>
+                            </div>
+
+    </div>
+</div>
+    <div class="row">
+
+        <div class="col-sm-6">
+
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                <label>System Features</label>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                {{ form.sysFeature | attr:"class:input" | attr:"placeholder:System Feature"  }}
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                <div class="field is-grouped is-grouped-centered">
+                  <p class="control">
+                    <input type="submit" value="Submit" class="btn btn-primary btn-block">
+                    </input>
+                  </p>
+                  <p class="control">
+                    <a class="btn btn-primary btn-block" href="{% url 'features' %}">
+                      Cancel
+                    </a>
+                  </p>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}
